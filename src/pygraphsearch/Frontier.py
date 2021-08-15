@@ -4,14 +4,13 @@ from .State import State
 
 
 class Frontier(ABC, Sized):
-	@abstractmethod
 	def is_empty(self) -> bool:
-		"""Check if the frontier is empty or not.
+		"""Check if the frontier has more states to extract.
 
 		Returns:
 			bool: True if the frontier is empty, false otherwise.
 		"""
-		pass
+		return len(self) == 0
 
 	@abstractmethod
 	def extract(self) -> Optional[State]:

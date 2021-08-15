@@ -1,12 +1,11 @@
-from typing import Any, Generic, Optional, TypeVar
+from typing import Any, Generic, Optional, Set, TypeVar
 from .Node import Node
-from abc import ABC, abstractmethod
 
 
 D = TypeVar("D")
 
 
-class Edge(Generic[D], ABC):
+class Edge(Generic[D]):
 	"""Represents a way to reach one node from another.
 
 	Args:
@@ -41,20 +40,15 @@ class Edge(Generic[D], ABC):
 		return self.__data
 
 	@property
-	@abstractmethod
-	def math_repr(self) -> Any:
-		"""A mathematical representation of the edge to be used for comparison. For example for an undirected edge this might be a set containing the two nodes. For a directed edge it might be a tuple containing the same. For a weighted edge, this may include the weight.
-
-		Returns:
-			Any: A mathematical representation of the node.
-		"""
-		pass
+	def __nodes_set(self) -> Set[Node]:
+		"""A set of the two nodes in this edge."""
+		return {self.node_a, self.node_b}
 
 	def __eq__(self, other):
-		return isinstance(other, Edge) and self.math_repr == other.math_repr
+		return isinstance(other, Edge) and self.__nodes_set == other.__nodes_set
 
 	def __str__(self) -> str:
-		return str(self.data) if self.data is not None else str(self.math_repr())
+		return str(self.data) if self.data is not None else str(self.__nodes_set)
 
 	def __repr__(self) -> str:
 		return str(self)
