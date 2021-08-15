@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
 	name="pygraphsearch",
-	version="1.1.0",
+	version="1.1.2",
 	author="Abraham Murciano",
 	author_email="abrahammurciano@gmail.com",
 	description="A python package to search graphs.",
