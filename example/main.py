@@ -32,13 +32,13 @@ if __name__ == "__main__":
 	frontier = IterativeDeepeningFrontier(start_board, initial_depth=2, depth_step=2)
 
 	# Call the search function with our frontier and with a lambda to tell it that a node is a target if it is equal to `target`
-	state1 = search(frontier, lambda node: node == target)
+	# state1 = search(frontier, lambda node: node == target)
 
 	# Or simply call the function with the default options for one of the predefined algorithms
 	state2 = search(
 		start_board, lambda node: node == target, Algorithm.DepthFirstSearch
 	)
 
-	if state1 is not None:
-		for edge in state1.path:
+	if state2 is not None:
+		for edge in state2.path:
 			print(edge.data, end=" ")

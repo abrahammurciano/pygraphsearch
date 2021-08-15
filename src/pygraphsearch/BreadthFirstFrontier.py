@@ -11,14 +11,15 @@ class BreadthFirstFrontier(Frontier):
 	def __init__(self, start: Node):
 		self.__queue = deque[State]()
 		self.__queue.append(State(start))
-		self.__visited: Set[State] = set()
+		self.__visited: Set[Node] = set()
 
 	def extract(self) -> Optional[State]:
 		return self.__queue.popleft() if self.__queue else None
 
 	def insert(self, state: State):
-		self.__visited.add(state)
-		self.__queue.append(state)
+		if state.node not in self.__visited:
+			self.__visited.add(state.node)
+			self.__queue.append(state)
 
 	def __len__(self) -> int:
 		return len(self.__queue)
