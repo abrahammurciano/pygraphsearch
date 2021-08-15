@@ -14,7 +14,7 @@ pip install pygraphsearch
 
 ## 2. Usage
 
-As an example on how to use this package, we will make a program that will solve sliding puzzles. The complete source code is in the folder (example)[example]. We will provide the program with some shuffled arrangement of tiles as the starting node, and we will tell it what the correct tile arrangement is as the target node.
+As an example on how to use this package, we will make a program that will solve sliding puzzles. The complete source code is in the folder [example](example). We will provide the program with some shuffled arrangement of tiles as the starting node, and we will tell it what the correct tile arrangement is as the target node.
 
 We will also tell it how to move from one board to another.
 
