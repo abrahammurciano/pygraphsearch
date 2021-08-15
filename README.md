@@ -103,7 +103,7 @@ state1 = search(frontier, lambda node: node == target)
 
 # Or simply call the function with the default options for one of the predefined algorithms
 state2 = search(
-	start_board, lambda node: node == target, Algorithm.DepthFirstSearch
+	start_board, lambda node: node == target, Algorithm.BreadthFirstSearch # (DFS would take forever for this problem)
 )
 ```
 
