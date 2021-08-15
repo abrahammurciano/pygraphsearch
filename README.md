@@ -1,10 +1,10 @@
 # pygraphsearch
 
-## A python package to search graphs.
+A python package to search graphs.
 
 ---
 
-### 1. Installation
+## 1. Installation
 
 To install the package, run the following command.
 
@@ -12,13 +12,13 @@ To install the package, run the following command.
 pip install pygraphsearch
 ```
 
-### 2. Usage
+## 2. Usage
 
 As an example on how to use this package, we will make a program that will solve sliding puzzles. The complete source code is in the folder (example)[example]. We will provide the program with some shuffled arrangement of tiles as the starting node, and we will tell it what the correct tile arrangement is as the target node.
 
 We will also tell it how to move from one board to another.
 
-#### 2.1 Node
+### 2.1 Node
 
 This package includes a Node class which your nodes should inherit from. In our example, we will make a class `Board` that extends `Node`. This class will represent the layout of the tiles on the board at any given time.
 
@@ -55,13 +55,13 @@ class Board(Node):
 		return hash(tuple(self.__tiles))
 ```
 
-#### 2.2 Edges
+### 2.2 Edges
 
 As we saw in the previous section, the `neighbours` method has to return an `Edge`. This class is defined in this package and can be constructed py passing it two nodes and some optional data. The data, if passed, is used to convert an edge into a string for convenience, but otherwise not used by the search package.
 
 In our example it will be useful to store the direction that the empty tile is moved in an edge, as it will allow us to reconstruct the solution later.
 
-#### 2.3 Basic Usage
+### 2.3 Basic Usage
 
 Now that we have our nodes, we will write a basic program that will request a puzzle from the user and attempt to solve it using the `search` function provided by this package.
 
@@ -118,7 +118,7 @@ The other way to call the search function is to provide it with:
 -   a frontier (more on that in the next section) and
 -   a function which takes a node and returns true if the node is a target node or false otherwise.
 
-#### 2.4 Frontiers
+### 2.4 Frontiers
 
 A frontier is the heart of the search algorithm. It is a data structure which holds the furthest nodes we have explored and it determines the order in which we will explore them further.
 
@@ -130,7 +130,7 @@ If you want to implement your own search algorithms, all you need is to implemen
 -   `extract(self) -> Optional[State]` to extract states from the stack, and
 -   `__len__(self) -> int` which is the number of states stored in the frontier. The only important thing to be aware of about this function is that it should return 0 only when there are no more states to extract. If for some reason you can't or don't want to conform to this, you'll have to override `is_empty` to return true only when there are no more states to extract, and the search is done.
 
-#### 2.5 State
+### 2.5 State
 
 The search function returns a state object. This object has two properties.
 
