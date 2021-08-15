@@ -1,7 +1,7 @@
 from typing import List, Tuple
 from pygraphsearch.Algorithm import Algorithm
 from pygraphsearch.IterativeDeepeningFrontier import IterativeDeepeningFrontier
-from .Board import Board
+from example.Board import Board
 from pygraphsearch import search
 
 
