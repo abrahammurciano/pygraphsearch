@@ -1,12 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TYPE_CHECKING, Iterable, TypeVar
-from .Edge import TData
-
-if TYPE_CHECKING:
-	from .Edge import Edge
-
-
-TNode = TypeVar("TNode", bound="Node")
+from .Edge import TNode, TData, Edge
 
 
 class Node(Generic[TNode, TData], ABC):

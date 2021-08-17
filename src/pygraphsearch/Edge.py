@@ -1,7 +1,10 @@
-from typing import Generic, Optional, Set, TypeVar
-from .Node import TNode
+from typing import Generic, Optional, Set, TypeVar, TYPE_CHECKING
+
+if TYPE_CHECKING:
+	from .Node import Node
 
 TData = TypeVar("TData")
+TNode = TypeVar("TNode", bound="Node")
 
 
 class Edge(Generic[TNode, TData]):
