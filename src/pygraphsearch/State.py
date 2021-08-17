@@ -1,6 +1,8 @@
 from typing import Generic, Iterable, List, Optional
+
+from .Path import Path
 from .Edge import Edge
-from .Node import Node, TNode
+from .Node import TNode
 from .Edge import TData
 
 
@@ -14,15 +16,15 @@ class State(Generic[TNode, TData]):
 		Generic (TData): The type of the data stored in the edges.
 	"""
 
-	def __init__(self, node: TNode, path: Optional[List[Edge[TNode, TData]]] = None):
+	def __init__(self, node: TNode, path: Path = Path()):
 		"""Construct a state.
 
 		Args:
 			node (TNode): The current node.
-			path (Optional[List[Edge[TNode, TData]]], optional): The list of edges taken to reach the current node. Defaults to an empty list.
+			path (Path, optional): The sequence of edges taken to reach the current node. Defaults to an empty path.
 		"""
 		self.__node = node
-		self.__path = path or []
+		self.__path = Path(path or [])
 
 	@property
 	def node(self) -> TNode:
@@ -30,9 +32,9 @@ class State(Generic[TNode, TData]):
 		return self.__node
 
 	@property
-	def path(self) -> List[Edge[TNode, TData]]:
+	def path(self) -> Path[TNode, TData]:
 		"""The list of edges taken to reach the current node."""
-		return self.__path.copy()
+		return self.__path
 
 	def next_states(self) -> Iterable["State[TNode,TData]"]:
 		"""The states reachable by taking one edge from the current node of this state. This does not include backtracking to the node before the current one.
