@@ -2,7 +2,7 @@ from typing import Generic, Optional, Set
 from collections import deque
 from .Frontier import Frontier
 from .State import State
-from .Node import Node, TNode
+from .Node import TNode
 from .Edge import TData
 
 
