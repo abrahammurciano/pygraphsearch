@@ -14,7 +14,7 @@ class BreadthFirstFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
 		Generic (TData): The type of the data stored by the edges of the graph.
 	"""
 
-	def __init__(self, start: Node[TNode, TData]):
+	def __init__(self, start: TNode):
 		self.__queue = deque[State[TNode, TData]]()
 		self.__queue.append(State(start))
 		self.__visited: Set[TNode] = set()

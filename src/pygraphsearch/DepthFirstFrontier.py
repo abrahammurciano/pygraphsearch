@@ -14,7 +14,7 @@ class DepthFirstFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
 		Generic (TData): The type of the data stored by the edges of the graph.
 	"""
 
-	def __init__(self, start: Node[TNode, TData]):
+	def __init__(self, start: TNode):
 		self.__stack = Stack[State[TNode, TData]]()
 		self.__stack.push(State(start))
 		self.__visited: Set[TNode] = set()

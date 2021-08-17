@@ -44,7 +44,7 @@ def search(
 
 
 def search(
-	arg1: Union[Frontier[TNode, TData], TNode],
+	arg1: Union[Frontier[TNode, TData], Node[TNode, TData]],
 	arg2: Callable[[TNode], bool],
 	arg3: Optional[Algorithm] = None,
 	/,

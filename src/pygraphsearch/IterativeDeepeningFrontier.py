@@ -14,9 +14,7 @@ class IterativeDeepeningFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
 		Generic (TData): The type of the data stored by the edges of the graph.
 	"""
 
-	def __init__(
-		self, start: Node[TNode, TData], initial_depth: int = 1, depth_step: int = 1
-	):
+	def __init__(self, start: TNode, initial_depth: int = 1, depth_step: int = 1):
 		"""Construct a frontier for an interative deepening search algorithm.
 
 		Args:

@@ -14,14 +14,12 @@ class State(Generic[TNode, TData]):
 		Generic (TData): The type of the data stored in the edges.
 	"""
 
-	def __init__(
-		self, node: Node[TNode, TData], path: Optional[List[Edge[TNode, TData]]] = None
-	):
+	def __init__(self, node: TNode, path: Optional[List[Edge[TNode, TData]]] = None):
 		"""Construct a state.
 
 		Args:
-			node (Node[TNode, TData] The current node.
-			path (Optional[List[Edge]], optional): The list of edges taken to reach the current node. Defaults to an empty list.
+			node (TNode): The current node.
+			path (Optional[List[Edge[TNode, TData]]], optional): The list of edges taken to reach the current node. Defaults to an empty list.
 		"""
 		self.__node = node
 		self.__path = path or []

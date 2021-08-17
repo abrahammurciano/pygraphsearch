@@ -1,4 +1,4 @@
-from pygraphsearch import Edge, Node, TNode, TData
+from pygraphsearch import Edge, Node
 from typing import Collection, Iterable, Optional
 from .Move import Move
 
@@ -40,9 +40,11 @@ class Board(Node["Board", Move]):
 		"""The number of tiles per row or column."""
 		return self.__size
 
-	def neighbours(self) -> Iterable[Edge[TNode, TData]]:
+	def neighbours(self) -> Iterable[Edge["Board", Move]]:
 		return [
-			Edge(self, self.move(move), move) for move in Move if self.can_move(move)
+			Edge[Board, Move](self, self.move(move), move)
+			for move in Move
+			if self.can_move(move)
 		]
 
 	def can_move(self, move: Move) -> bool:
