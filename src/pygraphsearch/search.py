@@ -1,5 +1,6 @@
 from typing import Callable, Optional, Union, overload
-from . import TypeVars as T
+from .Node import TNode
+from .Edge import TData
 from .Algorithm import Algorithm
 from .State import State
 from .Frontier import Frontier
@@ -8,13 +9,13 @@ from .Node import Node
 
 @overload
 def search(
-	frontier: Frontier[T.Node, T.Data], is_target: Callable[[T.Node], bool], /
-) -> Optional[State]:
+	frontier: Frontier[TNode, TData], is_target: Callable[[TNode], bool], /
+) -> Optional[State[TNode, TData]]:
 	"""Search for the path to a target.
 
 	Args:
 		frontier (Frontier): An object derived from Frontier. It should contain only the start state and will be modified by this function.
-		is_target (Callable[[T.Node], bool]): A predicate which tells us if a node is a target.
+		is_target (Callable[[TNode], bool]): A predicate which tells us if a node is a target.
 
 	Returns:
 		Optional[State]: The target state, or None if none exists.
@@ -24,13 +25,16 @@ def search(
 
 @overload
 def search(
-	start: T.Node, is_target: Callable[[T.Node], bool], algorithm: Algorithm, /
-) -> Optional[State]:
+	start: Node[TNode, TData],
+	is_target: Callable[[TNode], bool],
+	algorithm: Algorithm,
+	/,
+) -> Optional[State[TNode, TData]]:
 	"""Search for the path to a target
 
 	Args:
-		start (T.Node): The node to start the search from.
-		is_target (Callable[[T.Node], bool]): A predicate which tells us if a node is a target.
+		start (Node[TNode, TData] The node to start the search from.
+		is_target (Callable[[TNode], bool]): A predicate which tells us if a node is a target.
 		algorithm (Algorithm): The algorithm you want to use for the search.
 
 	Returns:
@@ -40,11 +44,11 @@ def search(
 
 
 def search(
-	arg1: Union[Frontier[T.Node, T.Data], T.Node],
-	arg2: Callable[[T.Node], bool],
+	arg1: Union[Frontier[TNode, TData], TNode],
+	arg2: Callable[[TNode], bool],
 	arg3: Optional[Algorithm] = None,
 	/,
-) -> Optional[State]:
+) -> Optional[State[TNode, TData]]:
 	is_target = arg2
 	if isinstance(arg1, Frontier):
 		frontier = arg1

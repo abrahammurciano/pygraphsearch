@@ -1,7 +1,7 @@
 from .search import search
 from .State import State
-from .Node import Node
-from .Edge import Edge
+from .Node import Node, TNode
+from .Edge import Edge, TData
 from .Frontier import Frontier
 from .IterativeDeepeningFrontier import IterativeDeepeningFrontier
 from .BreadthFirstFrontier import BreadthFirstFrontier

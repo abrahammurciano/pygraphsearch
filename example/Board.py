@@ -1,9 +1,9 @@
-from pygraphsearch import Edge, Node
+from pygraphsearch import Edge, Node, TNode, TData
 from typing import Collection, Iterable, Optional
 from .Move import Move
 
 
-class Board(Node):
+class Board(Node["Board", Move]):
 	"""Represents a square board of dimensions n by n.
 
 	Each tile in the board contains a number from 0 to n, where 0 is the empty tile. The empty tile may be swapped with any tile directly adjacent to it.
@@ -40,7 +40,7 @@ class Board(Node):
 		"""The number of tiles per row or column."""
 		return self.__size
 
-	def neighbours(self) -> Iterable[Edge]:
+	def neighbours(self) -> Iterable[Edge[TNode, TData]]:
 		return [
 			Edge(self, self.move(move), move) for move in Move if self.can_move(move)
 		]
