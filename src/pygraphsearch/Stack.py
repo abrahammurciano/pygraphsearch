@@ -44,9 +44,7 @@ class Stack(Generic[T]):
 		return self.__list.pop()
 
 	def __len__(self) -> int:
-		"""Get the number of items in the stack.
-
-		Returns:
-			int: The number of items in the stack.
-		"""
 		return len(self.__list)
+
+	def __bool__(self) -> bool:
+		return bool(self.__list)

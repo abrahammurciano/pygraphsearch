@@ -42,3 +42,6 @@ class Frontier(ABC, Sized, Generic[TNode, TData]):
 			state (State): The state to insert.
 		"""
 		pass
+
+	def __bool__(self) -> bool:
+		return not self.is_empty()
