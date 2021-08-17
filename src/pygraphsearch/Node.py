@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 from typing import Generic, TYPE_CHECKING, Iterable, TypeVar
-from .Node import TNode
 from .Edge import TData
 
 if TYPE_CHECKING:
