@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Generic, Optional, Sized, TypeVar
-from .Node import Node
+from typing import Generic, Optional, Sized
 from .State import State
 from . import TypeVars as T
 

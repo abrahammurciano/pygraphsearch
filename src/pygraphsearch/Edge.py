@@ -1,5 +1,4 @@
-from typing import Generic, Optional, Set, TypeVar
-from .Node import Node
+from typing import Generic, Optional, Set
 from . import TypeVars as T
 
 

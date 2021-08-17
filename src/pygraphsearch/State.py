@@ -1,5 +1,4 @@
-from typing import Generic, Iterable, List, Optional, TypeVar
-from .Node import Node
+from typing import Generic, Iterable, List, Optional
 from .Edge import Edge
 from . import TypeVars as T
 
@@ -40,12 +39,8 @@ class State(Generic[T.Node, T.Data]):
 		Returns:
 			Iterable[State]: The states that can be reached from the current node by taking a single edge.
 		"""
-
-		def neighbours() -> Iterable[Edge[T.Node, T.Data]]:
-			return self.node.neighbours()
-
 		return [
 			State[T.Node, T.Data](edge.node_b, self.__path + [edge])
-			for edge in neighbours()
+			for edge in self.node.neighbours()
 			if not self.path or edge != self.path[-1]
 		]

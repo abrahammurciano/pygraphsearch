@@ -1,7 +1,6 @@
-from typing import Generic, Optional, Set, TypeVar
+from typing import Generic, Optional, Set
 from collections import deque
 from .Frontier import Frontier
-from .Node import Node
 from .State import State
 from . import TypeVars as T
 
