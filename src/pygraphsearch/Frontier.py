@@ -4,6 +4,13 @@ from .State import State
 
 
 class Frontier(ABC, Sized):
+	"""A data structure which holds the furthest nodes we have explored and it determines the order in which we will explore them further.
+
+	To implement your own frontier, you must subclass this class and implement the following methods:
+	- `extract(self) -> Optional[State]` to extract the next state from the frontier.
+	- `insert(self, state: State) -> Optional[State]` to insert a state into the frontier.
+	"""
+
 	def is_empty(self) -> bool:
 		"""Check if the frontier has more states to extract.
 
