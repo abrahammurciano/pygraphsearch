@@ -1,22 +1,28 @@
+from typing import Generic
 from .Stack import Stack
 from .Frontier import Frontier
 from .State import State
-from .Node import Node
+from . import TypeVars as T
 
 
-class IterativeDeepeningFrontier(Frontier):
-	"""A frontier for a graph search algorithm that performs DFS up to a limited depth, then if no path is found, increases the depth and starts again."""
+class IterativeDeepeningFrontier(Generic[T.Node, T.Data], Frontier[T.Node, T.Data]):
+	"""A frontier for a graph search algorithm that performs DFS up to a limited depth, then if no path is found, increases the depth and starts again.
 
-	def __init__(self, start: Node, initial_depth: int = 1, depth_step: int = 1):
+	Args:
+		Generic (T.Node): The type of the nodes of the graph.
+		Generic (T.Data): The type of the data stored by the edges of the graph.
+	"""
+
+	def __init__(self, start: T.Node, initial_depth: int = 1, depth_step: int = 1):
 		"""Construct a frontier for an interative deepening search algorithm.
 
 		Args:
-			start (Node): The node from which to start the search.
+			start (T.Node): The node from which to start the search.
 			initial_depth (int, optional): The initial depth limit for the search. Defaults to 1.
 			depth_step (int, optional): The amount to increase the depth by each time. Defaults to 1.
 		"""
-		self.__stack = Stack[State]()
-		self.__start_state = State(start)
+		self.__stack = Stack[State[T.Node, T.Data]]()
+		self.__start_state = State[T.Node, T.Data](start)
 		self.__stack.push(self.__start_state)
 		self.__depth = initial_depth
 		self.__can_go_deeper = False
@@ -25,7 +31,7 @@ class IterativeDeepeningFrontier(Frontier):
 	def is_empty(self) -> bool:
 		return self.__stack.is_empty() and not self.__can_go_deeper
 
-	def insert(self, state: State):
+	def insert(self, state: State[T.Node, T.Data]):
 		if len(state.path) <= self.__depth:
 			self.__stack.push(state)
 			self.__start_state = self.__start_state or state

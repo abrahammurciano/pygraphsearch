@@ -1,46 +1,45 @@
-from typing import Any, Generic, Optional, Set, TypeVar
+from typing import Generic, Optional, Set, TypeVar
 from .Node import Node
+from . import TypeVars as T
 
 
-D = TypeVar("D")
-
-
-class Edge(Generic[D]):
+class Edge(Generic[T.Node, T.Data]):
 	"""Represents a way to reach one node from another.
 
 	Args:
-		Generic (D): Data to be contained by an edge. For example if the edge represents getting from one chess board position to another, the data might be "Be5".
+		Generic (T.Node): The type of the nodes of the graph.
+		Generic (T.Data): Data to be contained by an edge. For example if the edge represents getting from one chess board position to another, the data might be "Be5".
 	"""
 
-	def __init__(self, node_a: Node, node_b: Node, data: Optional[D] = None):
+	def __init__(self, node_a: T.Node, node_b: T.Node, data: Optional[T.Data] = None):
 		"""Construct a node.
 
 		Args:
-			node_a (Node): One of the endpoints of the edge
-			node_b (Node): The other endpoint of the edge.
-			data (D, optional): Data to be stored by the node. Defaults to None.
+			node_a (T.Node): One of the endpoints of the edge
+			node_b (T.Node): The other endpoint of the edge.
+			data (T.Data, optional): Data to be stored by the node. Defaults to None.
 		"""
 		self.__node_a = node_a
 		self.__node_b = node_b
 		self.__data = data
 
 	@property
-	def node_a(self) -> Node:
+	def node_a(self) -> T.Node:
 		"""The first node of the edge."""
 		return self.__node_a
 
 	@property
-	def node_b(self) -> Node:
+	def node_b(self) -> T.Node:
 		"""The second node of the edge."""
 		return self.__node_b
 
 	@property
-	def data(self) -> Optional[D]:
+	def data(self) -> Optional[T.Data]:
 		"""The data stored in this edge."""
 		return self.__data
 
 	@property
-	def __nodes_set(self) -> Set[Node]:
+	def __nodes_set(self) -> Set[T.Node]:
 		"""A set of the two nodes in this edge."""
 		return {self.node_a, self.node_b}
 

@@ -1,8 +1,9 @@
 from typing import List, Tuple
 from pygraphsearch.Algorithm import Algorithm
 from pygraphsearch.IterativeDeepeningFrontier import IterativeDeepeningFrontier
-from example.Board import Board
 from pygraphsearch import search
+from example.Board import Board
+from example.Move import Move
 
 
 def get_board_details() -> Tuple[int, List[int]]:
@@ -29,7 +30,9 @@ if __name__ == "__main__":
 	target = Board(size, range(size * size))
 
 	# Create a frontier with custom parameters
-	frontier = IterativeDeepeningFrontier(start_board, initial_depth=2, depth_step=2)
+	frontier = IterativeDeepeningFrontier[Board, Move](
+		start_board, initial_depth=2, depth_step=2
+	)
 
 	# Call the search function with our frontier and with a lambda to tell it that a node is a target if it is equal to `target`
 	state1 = search(frontier, lambda node: node == target)
