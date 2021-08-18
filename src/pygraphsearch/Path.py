@@ -21,6 +21,14 @@ class Path(Generic[TNode, TData], Sequence[Edge[TNode, TData]]):
 	def edges(self) -> List[Edge[TNode, TData]]:
 		return self.__edges.copy()
 
+	@property
+	def nodes(self) -> List[TNode]:
+		return (
+			[self.__edges[0].node_a] + [edge.node_b for edge in self.__edges]
+			if self.__edges
+			else []
+		)
+
 	def __len__(self) -> int:
 		return len(self.__edges)
 

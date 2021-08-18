@@ -30,7 +30,7 @@ class DijkstraFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
 
 	def __remove_visited(self):
 		"""Remove visited nodes from the heap until the top element is unvisited."""
-		while self.__heap and self.__heap.peek() not in self.__visited:
+		while self.__heap and self.__heap.peek() in self.__visited:
 			self.__heap.pop()
 
 	def __len__(self) -> int:

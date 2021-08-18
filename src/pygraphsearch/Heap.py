@@ -81,6 +81,9 @@ class Heap(Generic[T]):
 	def __len__(self):
 		return len(self.__heap_list)
 
+	def __bool__(self):
+		return bool(self.__heap_list)
+
 	def __heap_node(self, item: T, key: Any = None) -> Tuple[Any, int, T]:
 		"""Create a comparable tuple that can be inserted into the heap's list.
 

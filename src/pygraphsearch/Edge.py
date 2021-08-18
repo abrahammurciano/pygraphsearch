@@ -62,6 +62,9 @@ class Edge(Generic[TNode, TData]):
 	def __eq__(self, other):
 		return isinstance(other, Edge) and self.__nodes_set == other.__nodes_set
 
+	def __hash__(self) -> int:
+		return hash(self.node_a) + hash(self.node_b)
+
 	def __str__(self) -> str:
 		return str(self.data) if self.data is not None else str(self.__nodes_set)
 
