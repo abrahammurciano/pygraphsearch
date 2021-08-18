@@ -1,9 +1,8 @@
 from typing import Generic, Optional, Set
-from .State import State
+from .Edge import TData, TNode
 from .Frontier import Frontier
 from .Stack import Stack
-from .Node import Node, TNode
-from .Edge import TData
+from .State import State
 
 
 class DepthFirstFrontier(Generic[TNode, TData], Frontier[TNode, TData]):

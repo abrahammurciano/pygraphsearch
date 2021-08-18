@@ -1,9 +1,8 @@
 from typing import Generic
-from .Stack import Stack
+from .Edge import TData, TNode
 from .Frontier import Frontier
+from .Stack import Stack
 from .State import State
-from .Node import Node, TNode
-from .Edge import TData
 
 
 class IterativeDeepeningFrontier(Generic[TNode, TData], Frontier[TNode, TData]):

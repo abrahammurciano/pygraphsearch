@@ -1,9 +1,8 @@
 from typing import Generic, Optional, Set
 from collections import deque
+from .Edge import TData, TNode
 from .Frontier import Frontier
 from .State import State
-from .Node import TNode
-from .Edge import TData
 
 
 class BreadthFirstFrontier(Generic[TNode, TData], Frontier[TNode, TData]):

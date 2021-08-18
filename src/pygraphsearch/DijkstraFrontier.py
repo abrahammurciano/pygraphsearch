@@ -1,9 +1,8 @@
 from typing import Generic, Optional, Set
-from .Heap import Heap
+from .Edge import TData, TNode
 from .Frontier import Frontier
+from .Heap import Heap
 from .State import State
-from .Node import TNode
-from .Edge import TData
 
 
 class DijkstraFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
@@ -15,6 +14,11 @@ class DijkstraFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
 	"""
 
 	def __init__(self, start: TNode):
+		"""Construct a frontier for Dijkstra's algorithm.
+
+		Args:
+			start (TNode): The node to start the search from.
+		"""
 		self.__heap = Heap[State[TNode, TData]](key=lambda state: state.path.weight())
 		self.__heap.push(State(start))
 		self.__visited: Set[TNode] = set()

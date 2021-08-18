@@ -1,7 +1,5 @@
 from typing import List, Tuple
-from pygraphsearch.Algorithm import Algorithm
-from pygraphsearch.IterativeDeepeningFrontier import IterativeDeepeningFrontier
-from pygraphsearch import search
+from pygraphsearch import search, Algorithm, IterativeDeepeningFrontier
 from example.Board import Board
 from example.Move import Move
 
@@ -39,7 +37,7 @@ if __name__ == "__main__":
 
 	# Or simply call the function with the default options for one of the predefined algorithms
 	state2 = search(
-		start_board, lambda node: node == target, Algorithm.BreadthFirstSearch
+		start_board, lambda node: node == target, Algorithm.BREADTH_FIRST_SEARCH
 	)
 
 	if state2 is not None:

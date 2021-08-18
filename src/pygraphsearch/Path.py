@@ -1,6 +1,5 @@
 from typing import Generic, Sequence, List, Union, overload
-from .Node import TNode
-from .Edge import Edge, TData
+from .Edge import TNode, Edge, TData
 
 
 class Path(Generic[TNode, TData], Sequence[Edge[TNode, TData]]):
@@ -52,7 +51,7 @@ class Path(Generic[TNode, TData], Sequence[Edge[TNode, TData]]):
 		return Path(self.__edges + list(other))
 
 	def __str__(self) -> str:
-		return " ".join(str(self.__edges))
+		return " ".join(str(edge) for edge in self.__edges)
 
 	def __repr__(self) -> str:
 		return f"Path@{str(len(self))}: [{self}]"

@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Generic, Optional, Sized
 from .State import State
-from .Node import TNode
-from .Edge import TData
+from .Edge import TNode, TData
 
 
 class Frontier(ABC, Sized, Generic[TNode, TData]):

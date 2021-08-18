@@ -57,7 +57,7 @@ class Board(Node):
 
 ### 2.2 Edges
 
-As we saw in the previous section, the `neighbours` method has to return an `Edge`. This class is defined in this package and can be constructed py passing it two nodes and some optional data. The data, if passed, is used to convert an edge into a string for convenience, but otherwise not used by the search package.
+As we saw in the previous section, the `neighbours` method has to return an `Edge`. This class is defined in this package and can be constructed by passing it two nodes and some optional data. The data, if passed, is used to convert an edge into a string for convenience, but otherwise not used by the search package.
 
 In our example it will be useful to store the direction that the empty tile is moved in an edge, as it will allow us to reconstruct the solution later.
 
@@ -103,7 +103,7 @@ state1 = search(frontier, lambda node: node == target)
 
 # Or simply call the function with the default options for one of the predefined algorithms
 state2 = search(
-	start_board, lambda node: node == target, Algorithm.BreadthFirstSearch # (DFS would take forever for this problem)
+	start_board, lambda node: node == target, Algorithm.BREADTH_FIRST_SEARCH # (DFS would take forever for this problem)
 )
 ```
 

@@ -17,9 +17,9 @@ class DijkstraTest(TestCase):
 		nodes[4].connect(nodes[5], 1)
 		self.nodes = nodes
 
-	def test_dijkstra(self):
-		dijkstra_frontier = DijkstraFrontier[SimpleNode, str](self.nodes[0])
-		state = search(dijkstra_frontier, lambda node: node == self.nodes[5])
+	def test_Dijkstra(self):
+		Dijkstra_frontier = DijkstraFrontier[SimpleNode, str](self.nodes[0])
+		state = search(Dijkstra_frontier, lambda node: node == self.nodes[5])
 		self.assertEqual(state.node, self.nodes[5])
 		self.assertEqual(
 			state.path.nodes,
