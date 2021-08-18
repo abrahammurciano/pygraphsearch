@@ -50,3 +50,9 @@ class Path(Generic[TNode, TData], Sequence[Edge[TNode, TData]]):
 
 	def __add__(self, other: Sequence[Edge[TNode, TData]]) -> "Path[TNode, TData]":
 		return Path(self.__edges + list(other))
+
+	def __str__(self) -> str:
+		return " ".join(str(self.__edges))
+
+	def __repr__(self) -> str:
+		return f"Path@{str(len(self))}: [{self}]"
