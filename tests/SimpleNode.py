@@ -1,5 +1,5 @@
 from typing import Iterable, Set
-from pygraphsearch.Edge import Edge, TData, TNode
+from pygraphsearch.Edge import Edge
 from pygraphsearch.Node import Node
 
 

@@ -1,8 +1,8 @@
 from typing import Generic, Optional, Set
 from .Edge import TData, TNode
 from .Frontier import Frontier
-from .Heap import Heap
 from .State import State
+from typed_data_structures import Heap
 
 
 class DijkstraFrontier(Generic[TNode, TData], Frontier[TNode, TData]):

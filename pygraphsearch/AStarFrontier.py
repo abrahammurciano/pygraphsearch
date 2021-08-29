@@ -4,7 +4,7 @@ from .Edge import TData
 from .Frontier import Frontier
 from .Node import Node
 from .State import State
-from .Heap import Heap
+from typed_data_structures import Heap
 
 TNode = TypeVar("TNode", bound="Node")
 

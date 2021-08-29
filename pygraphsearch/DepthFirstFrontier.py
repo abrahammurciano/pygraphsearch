@@ -1,12 +1,12 @@
 from typing import Generic, Optional, Set
-from collections import deque
 from .Edge import TData, TNode
 from .Frontier import Frontier
+from typed_data_structures import Stack
 from .State import State
 
 
-class BreadthFirstFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
-	"""A frontier for a graph search algorithm that performs Breadth First Search (BFS) using a queue.
+class DepthFirstFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
+	"""A frontier for a graph search algorithm that performs Depth First Search (DFS) using a stack.
 
 	Args:
 		Generic (TNode): The type of the nodes of the graph.
@@ -14,17 +14,17 @@ class BreadthFirstFrontier(Generic[TNode, TData], Frontier[TNode, TData]):
 	"""
 
 	def __init__(self, start: TNode):
-		self.__queue = deque[State[TNode, TData]]()
-		self.__queue.append(State(start))
+		self.__stack = Stack[State[TNode, TData]]()
+		self.__stack.push(State(start))
 		self.__visited: Set[TNode] = set()
 
 	def extract(self) -> Optional[State[TNode, TData]]:
-		return self.__queue.popleft() if self.__queue else None
+		return None if self.__stack.is_empty() else self.__stack.pop()
 
 	def insert(self, state: State[TNode, TData]):
 		if state.node not in self.__visited:
 			self.__visited.add(state.node)
-			self.__queue.append(state)
+			self.__stack.push(state)
 
 	def __len__(self) -> int:
-		return len(self.__queue)
+		return len(self.__stack)

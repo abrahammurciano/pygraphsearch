@@ -1,14 +1,17 @@
 from typing import Callable
-from unittest import TestCase
 from pygraphsearch import search, Algorithm
 from .slidingpuzzle import Board
+import pytest
 
 
-class TestAStar(TestCase):
-	def setUp(self):
-		self.size = 3
-		self.start = Board(self.size, (1, 2, 5, 3, 7, 0, 6, 8, 4))
-		self.target = Board(self.size, range(self.size * self.size))
+class TestAStar:
+	@pytest.fixture
+	def start(self) -> Board:
+		return Board(3, (1, 2, 5, 3, 7, 0, 6, 8, 4))
+
+	@pytest.fixture
+	def target(self) -> Board:
+		return Board(3, range(3 * 3))
 
 	def manhattan_distance(self, board: Board, target: Board) -> int:
 		"""Calculate the sum of the manhattan distances for each tile in `board` from its intended position in `target`.
@@ -42,13 +45,14 @@ class TestAStar(TestCase):
 			for i in range(board.size * board.size)
 		)
 
-	def test_a_star(self):
+	def test_a_star(self, start: Board, target: Board):
 		state = search(
-			self.start,
-			lambda board: board == self.target,
+			start,
+			lambda board: board == target,
 			Algorithm.A_STAR,
-			lambda state: self.manhattan_distance(state.node, self.target),
+			lambda state: self.manhattan_distance(state.node, target),
 		)
 
-		self.assertEqual(state.node, self.target)
-		self.assertEqual(len(state.path), 7)
+		assert state is not None
+		assert state.node == target
+		assert len(state.path) == 7

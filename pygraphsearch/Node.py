@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from typing import Generic, TYPE_CHECKING, Iterable
+from typing import Generic, Iterable
 from .Edge import TNode, TData, Edge
 
 

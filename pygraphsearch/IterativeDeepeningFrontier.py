@@ -1,7 +1,7 @@
 from typing import Generic
 from .Edge import TData, TNode
 from .Frontier import Frontier
-from .Stack import Stack
+from typed_data_structures import Stack
 from .State import State
 
 
