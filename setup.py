@@ -24,5 +24,5 @@ setuptools.setup(
 	packages=setuptools.find_packages(where="src"),
 	python_requires=">=3.6",
 	test_suite="nose.collector",
-	tests_require=["nose"],
+	tests_require=["pytest"],
 )
