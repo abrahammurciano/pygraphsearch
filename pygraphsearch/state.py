@@ -1,6 +1,6 @@
 from typing import Generic, Iterable
-from .Path import Path
-from .Edge import TNode, TData
+from .path import Path
+from .edge import TNode, TData
 
 
 class State(Generic[TNode, TData]):

@@ -1,5 +1,5 @@
 from typing import Generic, Sequence, List, Union, overload
-from .Edge import TNode, Edge, TData
+from .edge import TNode, Edge, TData
 
 
 class Path(Generic[TNode, TData], Sequence[Edge[TNode, TData]]):

@@ -1,13 +1,13 @@
 from enum import Enum
 from typing import Any, Dict, Type
-from .AStarFrontier import AStarFrontier
-from .BreadthFirstFrontier import BreadthFirstFrontier
-from .DepthFirstFrontier import DepthFirstFrontier
-from .DijkstraFrontier import DijkstraFrontier
-from .Edge import TData, TNode
-from .Frontier import Frontier
-from .IterativeDeepeningFrontier import IterativeDeepeningFrontier
-from .Node import Node
+from .frontiers.a_star_frontier import AStarFrontier
+from .frontiers.breadth_first_frontier import BreadthFirstFrontier
+from .frontiers.depth_first_frontier import DepthFirstFrontier
+from .frontiers.dijkstra_frontier import DijkstraFrontier
+from .edge import TData, TNode
+from .frontier import Frontier
+from .frontiers.iterative_deepening_frontier import IterativeDeepeningFrontier
+from .node import Node
 
 frontiers: Dict[str, Type] = {
 	"BREADTH_FIRST_SEARCH": BreadthFirstFrontier[TNode, TData],

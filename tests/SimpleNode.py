@@ -1,6 +1,6 @@
 from typing import Iterable, Set
-from pygraphsearch.Edge import Edge
-from pygraphsearch.Node import Node
+from pygraphsearch.edge import Edge
+from pygraphsearch.node import Node
 
 
 class SimpleNode(Node["SimpleNode", str]):

@@ -1,7 +1,7 @@
 from typing import Generic, Optional, Set
-from .Edge import TData, TNode
-from .Frontier import Frontier
-from .State import State
+from ..edge import TData, TNode
+from ..frontier import Frontier
+from ..state import State
 from typed_data_structures import Heap
 
 

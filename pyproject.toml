@@ -1,6 +1,19 @@
+[tool.poetry]
+name = "pygraphsearch"
+version = "3.0.0"
+description = "A python package to search graphs."
+authors = ["Abraham Murciano <abrahammurciano@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/abrahammurciano/pygraphsearch"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+typed-data-structures = "^0.0.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
-]
-build-backend = "setuptools.build_meta"
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

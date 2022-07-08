@@ -1,9 +1,9 @@
 # use this when my PR is merged: from generic_heap import Heap
 from typing import Any, Callable, Generic, Optional, TypeVar
-from .Edge import TData
-from .Frontier import Frontier
-from .Node import Node
-from .State import State
+from ..edge import TData
+from ..frontier import Frontier
+from ..node import Node
+from ..state import State
 from typed_data_structures import Heap
 
 TNode = TypeVar("TNode", bound="Node")
