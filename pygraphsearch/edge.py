@@ -1,7 +1,7 @@
 from typing import Generic, Optional, Set, TypeVar, TYPE_CHECKING
 
 if TYPE_CHECKING:
-	from . import Node
+	from .node import Node
 
 TData = TypeVar("TData")
 TNode = TypeVar("TNode", bound="Node")

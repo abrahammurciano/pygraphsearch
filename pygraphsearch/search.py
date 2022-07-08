@@ -1,9 +1,9 @@
 from typing import Any, Callable, Optional, Union, overload
-from .Algorithm import Algorithm
-from .Edge import TData, TNode
-from .Frontier import Frontier
-from .Node import Node
-from .State import State
+from .algorithm import Algorithm
+from .edge import TData, TNode
+from .frontier import Frontier
+from .node import Node
+from .state import State
 
 
 @overload

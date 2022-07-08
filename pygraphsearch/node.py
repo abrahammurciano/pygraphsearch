@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Generic, Iterable
-from .Edge import TNode, TData, Edge
+from .edge import TNode, TData, Edge
 
 
 class Node(Generic[TNode, TData], ABC):

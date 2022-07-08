@@ -1,8 +1,8 @@
 from typing import Generic
-from .Edge import TData, TNode
-from .Frontier import Frontier
+from ..edge import TData, TNode
+from ..frontier import Frontier
 from typed_data_structures import Stack
-from .State import State
+from ..state import State
 
 
 class IterativeDeepeningFrontier(Generic[TNode, TData], Frontier[TNode, TData]):

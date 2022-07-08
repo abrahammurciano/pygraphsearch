@@ -1,8 +1,8 @@
 from typing import Generic, Optional, Set
 from typed_data_structures import Queue
-from .Edge import TData, TNode
-from .Frontier import Frontier
-from .State import State
+from ..edge import TData, TNode
+from ..frontier import Frontier
+from ..state import State
 
 
 class BreadthFirstFrontier(Generic[TNode, TData], Frontier[TNode, TData]):

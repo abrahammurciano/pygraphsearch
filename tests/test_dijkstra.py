@@ -6,7 +6,7 @@ from .SimpleNode import SimpleNode
 from pygraphsearch import search, DijkstraFrontier
 
 
-class DijkstraTest:
+class TestDijkstra:
 	@pytest.fixture
 	def nodes(self) -> List[SimpleNode]:
 		nodes = [SimpleNode(str(i)) for i in range(6)]
@@ -20,7 +20,7 @@ class DijkstraTest:
 		nodes[4].connect(nodes[5], 1)
 		return nodes
 
-	def test_Dijkstra(self, nodes: List[SimpleNode]):
+	def test_dijkstra(self, nodes: List[SimpleNode]):
 		dijkstra_frontier = DijkstraFrontier[SimpleNode, str](nodes[0])
 		state = search(dijkstra_frontier, lambda node: node == nodes[5])
 		assert state is not None
