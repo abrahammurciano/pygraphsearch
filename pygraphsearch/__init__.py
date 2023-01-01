@@ -3,7 +3,7 @@ from .frontiers.a_star_frontier import AStarFrontier
 from .frontiers.breadth_first_frontier import BreadthFirstFrontier
 from .frontiers.depth_first_frontier import DepthFirstFrontier
 from .frontiers.dijkstra_frontier import DijkstraFrontier
-from .edge import Edge, TData, TNode
+from .edge import Edge, TNode
 from .frontier import Frontier
 from .frontiers.iterative_deepening_frontier import IterativeDeepeningFrontier
 from .node import Node
